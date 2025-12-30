@@ -1,0 +1,1 @@
+# Lab2_AI_for_study
