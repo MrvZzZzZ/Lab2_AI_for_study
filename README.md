@@ -14,7 +14,7 @@
 
 ****
 | Вариант | Разметка | Датасет | Векторы | Модель | Группа |
-|--|
+| --- | --- | --- | --- | --- | --- |
 | 8 | Нет | Kaggle Fake News Dataset | Предобученные | Векторы -> Umap -> Кластеризация (Kmeans, HDBSCAN) + BertTopic | 425 Миняев, Роева, Перьков, Пономарев  |
 
 # 1 Теоретическая база
@@ -63,7 +63,7 @@
 В результате текст преобразовывается следующим образом:
 
 | title - text | news["content"] |
-|--|
+| --- | --- |
 |   Donald Trump Sends Out Embarrassing New Year’s Eve Message - This is Disturbing,"Donald Trump just couldn t wish all Americans a Happy New Year and leave it at that. Instead, he had to give a shout out to his enemies, haters and  the very dishonest fake news media.  The former reality show star had just one job to do and he couldn t do it. As our Country rapidly grows stronger and smarter, I want to wish all of my friends, supporters, enemies, haters, and even the very dishonest Fake News Media, a Happy and Healthy New Year,  President Angry Pants tweeted.  2018 will be a great year for America! As our Country rapidly grows stronger and smarter, I want to wish all of my friends, supporters, enemies, haters, and even the very dishonest Fake News Media, a Happy and Healthy New Year. 2018 will be a great year for America!  Donald J. Trump (@realDonaldTrump) December 31, 2017...| donald trump send embarrass new year eve messag disturb donald trump wish american happi new year leav instead give shout enemi hater dishonest fake news media former realiti show star one job countri rapidli grow stronger smarter want wish friend support enemi hater even dishonest fake news media happi healthi new year presid angri pant tweet great year america countri rapidli grow stronger smarter want wish friend support enemi hater even dishonest fake news media happi healthi new year great year america donald trump decemb trump tweet went welll expect kind presid send new year greet like... |
 
 Выделение эмбедингов производится с помощью SentenceTransformer.
@@ -78,12 +78,12 @@
 
 Топ-5 тем с наибольшей долей выбросов:
 | Тема | Выбросы | Ключевые слова |
-|--|
-| 50 | 82.8% | [apple, internet, fcc, privacy, phone] |
-| 28 | 79.3% | [pope, francis, pope francis, catholic, church] |
-| 38 | 79.2% | [workers, jobs, ford, carrier, american] |
-| 12 | 70.9% | [veterans, trump, khan, military, veteran] |
-| 33 | 64.2% | [county, blasio, city, sanctuary, mayor] |
+| --- | --- | --- |
+| 18 | 55.6% | [najib, 1mdb, malaysia, said, malaysian] |
+| -1 | 44.2% | [trump, said, president, people, obama] |
+| 6 | 35.0% | [duterte, philippines, drugs, police, manila] |
+| 4 | 29.4% | [italy, star, malta, berlusconi, caruana] |
+| 0 | 22.0% | [trump, said, president, people, state] |
 
 Для полученных оценок несоответствия кластеру, соответствия теме, непринадлежность никакому кластеру формируется комбинированная оценка, по которой выделяются ниболее подозрительные темы. Для улучшения результата оценка должна стремиться к 0.
 
@@ -93,7 +93,11 @@
 
 # 3 Результаты работы и тестирования системы
 
-скриншоты, изображения, графики, закономерности
+Для визуального представления данных пятимерное пространство признаков после обучения с помощью Umap приводится в двумерное, результат представлен на рисунке 1, где красные точки выделяют наиболее аномальные статьи новостей.
+
+![<img src="/graph.png">](https://github.com/MrvZzZzZ/Lab2_AI_for_study/blob/main/graph.png)
+
+										Рисунок 1 - Проекция кластеров в двумерной плоскости
 
 # Выводы по работе
 
